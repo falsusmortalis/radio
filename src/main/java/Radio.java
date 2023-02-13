@@ -14,7 +14,7 @@ public class Radio {
             numberStation = 0;
         }
     }
-    public void previous() {
+    public void prev() {
         if (numberStation > 0) {
             numberStation--;
         } else {
