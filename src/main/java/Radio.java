@@ -1,12 +1,6 @@
 public class Radio {
-    private int numberStation;
-    private int currentVolume;
-    public int getNumberStation() {
-        return numberStation;
-    }
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
+    public int numberStation;
+
     public void next() {
         if (numberStation < 9) {
             numberStation++;
@@ -14,6 +8,7 @@ public class Radio {
             numberStation = 0;
         }
     }
+
     public void prev() {
         if (numberStation > 0) {
             numberStation--;
@@ -21,38 +16,49 @@ public class Radio {
             numberStation = 9;
         }
     }
-    public void setNumberStation(int numberStation) {
-        if (numberStation < 0) {
-            return;
-        }
-        if (numberStation > 9) {
-            return;
-        }
-        this.numberStation = numberStation;
-    }
-    public void setCurrentVolume(int currentVolume) {
 
-        if (currentVolume > 10) {
+    public void setNumberStation(int newNumberStation) {
+        if (newNumberStation < 0) {
             return;
         }
-        if (currentVolume < 0) {
+        if (newNumberStation > 9) {
             return;
         }
-        this.currentVolume = currentVolume;
+        numberStation = newNumberStation;
     }
-    public void increaseVolume() {
+
+    public int getNumberStation() {
+        return numberStation;
+    }
+
+    public int currentVolume;
+
+    public int getCurrentVolume() {
+
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+
+        if (newCurrentVolume > 10) {
+            return;
+        }
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
+    }
+
+    public void IncreaseVolume() {
         if (currentVolume < 10) {
-            currentVolume = currentVolume + 1;
-        } else {
-            currentVolume = 0;
+            currentVolume++;
+
         }
     }
 
-    public void reduceVolume() {
+    public void DecreaseVolume() {
         if (currentVolume > 0) {
             currentVolume--;
-        } else {
-            currentVolume = 0;
         }
     }
 }
