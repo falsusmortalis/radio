@@ -142,6 +142,16 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void maxVolume1() { // невозможность переключения за пределы верхних границ (10 максимум)
+        Radio radio = new Radio();
+        radio.setCurrentVolume(12);
+        radio.setCurrentVolume(10);
+        int expected = 10;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void minVolume() { // невозможность переключения за пределы нижних границ (0 минимум)
